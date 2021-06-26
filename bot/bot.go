@@ -43,7 +43,7 @@ func New(config *Config, budaClient BudaClient) *Bot {
 			},
 			eventCalculate: {
 				EventHandler: b.CalculateHandler,
-				Destination:  []string{eventCalculate, eventGetTicker, eventCreateOrder},
+				Destination:  []string{eventCalculate, eventCreateOrder},
 			},
 			eventCreateOrder: {
 				EventHandler: b.BuyCryptoHandler,

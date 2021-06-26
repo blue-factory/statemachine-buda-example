@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	eventCreateOrder = "event-create-order"
+	eventCreateOrder = "event_create_order"
 
 	typeOrderBid   = "Bid"
 	typePriceLimit = "market"

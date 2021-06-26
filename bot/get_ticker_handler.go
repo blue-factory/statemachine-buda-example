@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	eventGetTicker = "event-get-ticker"
+	eventGetTicker = "event_get_ticker"
 )
 
 func (b *Bot) GetTickerHandler(e *statemachine.Event) (*statemachine.Event, error) {

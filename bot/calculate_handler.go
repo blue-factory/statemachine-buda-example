@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	eventCalculate = "event-calculate"
+	eventCalculate = "event_calculate"
 )
 
 var bitSize = 64

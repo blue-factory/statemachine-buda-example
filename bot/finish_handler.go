@@ -3,7 +3,7 @@ package bot
 import "github.com/blue-factory/statemachine"
 
 const (
-	eventFinish = "event-finish"
+	eventFinish = "event_finish"
 )
 
 func (b *Bot) FinishHandler(e *statemachine.Event) (*statemachine.Event, error) {
