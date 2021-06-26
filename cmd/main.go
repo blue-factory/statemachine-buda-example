@@ -16,9 +16,9 @@ func main() {
 	// env vars
 	budaAPIKey := os.Getenv("BUDA_API_KEY")
 	budaAPISecret := os.Getenv("BUDA_API_SECRET")
-	targetVolumeStr := os.Getenv("TARGET_VOLUME")
-	rateToAcctionStr := os.Getenv("RATE_TO_ACTION")
-	currency := os.Getenv("CORRENCY")
+	targetVolumeStr := /*os.Getenv("TARGET_VOLUME")*/ "0.0"
+	rateToAcctionStr := /*os.Getenv("RATE_TO_ACTION")*/ "0.0"
+	currency := /*os.Getenv("CORRENCY")*/ "0.0"
 
 	targetVolume, err := strconv.ParseFloat(targetVolumeStr, bitSize)
 	check(err)

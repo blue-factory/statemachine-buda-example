@@ -1,6 +1,7 @@
 package bot
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/blue-factory/statemachine"
@@ -60,7 +61,9 @@ func New(config *Config, budaClient BudaClient) *Bot {
 }
 
 func (b *Bot) Start() {
-	b.sm.Run()
+	//b.sm.Run()
+	fmt.Println()
+	fmt.Println(b.sm.RenderMermaid())
 }
 
 // BudaClient Definition of buda client interface
