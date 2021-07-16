@@ -11,6 +11,7 @@ import (
 )
 
 var bitSize = 64
+var shouldRunOption = "1"
 
 func main() {
 	// env vars
@@ -18,7 +19,8 @@ func main() {
 	budaAPISecret := os.Getenv("BUDA_API_SECRET")
 	targetVolumeStr := os.Getenv("TARGET_VOLUME")
 	rateToAcctionStr := os.Getenv("RATE_TO_ACTION")
-	currency := os.Getenv("CORRENCY")
+	currency := os.Getenv("CURRENCY")
+	shouldRun := os.Getenv("SHOULD_RUN")
 
 	targetVolume, err := strconv.ParseFloat(targetVolumeStr, bitSize)
 	check(err)
@@ -41,7 +43,10 @@ func main() {
 	)
 
 	// run
-	b.Start()
+	b.Render()
+	if shouldRun == shouldRunOption {
+		b.Start()
+	}
 }
 
 func check(err error) {

@@ -47,7 +47,7 @@ func New(config *Config, budaClient BudaClient) *Bot {
 			},
 			eventCreateOrder: {
 				EventHandler: b.BuyCryptoHandler,
-				Destination:  []string{eventFinish},
+				Destination:  []string{eventFinish, eventGetTicker},
 			},
 			eventFinish: {
 				EventHandler: b.FinishHandler,
@@ -60,10 +60,12 @@ func New(config *Config, budaClient BudaClient) *Bot {
 	return b
 }
 
-func (b *Bot) Start() {
-	//b.sm.Run()
-	fmt.Println()
+func (b *Bot) Render() {
 	fmt.Println(b.sm.RenderMermaid())
+}
+
+func (b *Bot) Start() {
+	b.sm.Run()
 }
 
 // BudaClient Definition of buda client interface

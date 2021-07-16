@@ -10,6 +10,7 @@ BUDA_API_SECRET= // Buda.com api secret
 TARGET_VOLUME= // how much CLP we want to expent
 RATE_TO_ACTION= // expected fall price to buy
 CURRENCY= // currency to trade {BTC; ETH; LTC; BCH}
+SHOULD_RUN=1 // 1 to really run the bot and any other value jus to print the sm
 ```
 
 Then you can simply run
