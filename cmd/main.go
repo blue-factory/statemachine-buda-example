@@ -36,7 +36,7 @@ func main() {
 	b := bot.New(&bot.Config{
 		TargetVolume:     targetVolume,
 		RateToAction:     rateToAction,
-		TimeoutInSeconds: 1, // 1 request per second
+		TimeoutInSeconds: 2, // 1 request every 2 seconds
 		Currency:         currency,
 	},
 		budaClient,
