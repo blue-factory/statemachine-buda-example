@@ -5,6 +5,7 @@ import (
 
 	"github.com/blue-factory/statemachine"
 	"github.com/mtavano/buda-go"
+	"github.com/pkg/errors"
 )
 
 const (
@@ -23,7 +24,7 @@ func (b *Bot) BuyCryptoHandler(e *statemachine.Event) (*statemachine.Event, erro
 		Amount:    b.config.TargetVolume / payload.buyPrice,
 	})
 	if err != nil {
-		return &statemachine.Event{Name: eventGetTicker}, nil
+		return nil, errors.Wrap(err, "but: Bot.BuyCryptoHandler b.buda.CreateOrder error")
 	}
 
 	log.Printf("Bot.BuyCryptoHandler order created %+v", order)

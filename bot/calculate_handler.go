@@ -18,6 +18,7 @@ func (b *Bot) CalculateHandler(e *statemachine.Event) (*statemachine.Event, erro
 
 	ask, err := strconv.ParseFloat(payload.ticker.MinAsk[0], bitSize)
 	if err != nil {
+		// if this happens we will assume that is something wrong with the API response/connection
 		return nil, errors.Wrap(err, "bot: Bot CalculateHandler strconv.ParseFloat error")
 	}
 

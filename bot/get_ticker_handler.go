@@ -1,11 +1,11 @@
 package bot
 
 import (
+	"log"
 	"strings"
 	"time"
 
 	"github.com/blue-factory/statemachine"
-	"github.com/pkg/errors"
 )
 
 const (
@@ -15,13 +15,14 @@ const (
 func (b *Bot) GetTickerHandler(e *statemachine.Event) (*statemachine.Event, error) {
 	nextRequestStartAt := b.lastRequestMadeAt.Add(time.Second * time.Duration(b.config.TimeoutInSeconds))
 	now := b.now()
-	if now.Before(nextRequestStartAt) {
-		return e, nil
+	if now.Before(nextRequestStartAt) { // to avoid blocks by too many requests
+		return &statemachine.Event{Name: eventGetTicker}, nil
 	}
 
 	ticker, err := b.buda.GetTicker(strings.ToUpper(b.config.Currency))
 	if err != nil {
-		return nil, errors.Wrap(err, "bot: Bot GetTickerHandler b.buda.GetTicker error")
+		log.Printf("bot: Bot GetTickerHandler b.buda.GetTicker error %s", err.Error())
+		return &statemachine.Event{Name: eventGetTicker}, nil
 	}
 
 	b.lastRequestMadeAt = now
